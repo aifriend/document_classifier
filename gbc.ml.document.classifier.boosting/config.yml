@@ -1,0 +1,25 @@
+development:
+  service:
+    url:
+      fit: api/gbc/ml/document/classifier/datapreparation/fit
+      transform: api/gbc/ml/document/classifier/datapreparation/transform
+      training: api/gbc/ml/document/classifier/training
+      predict: api/gbc/ml/document/classifier/predict
+    address:
+      host: 127.0.0.1
+      port: 7122
+  directories:
+    dictionary: common/nlp/resources/dic_es.txt
+    lang: es
+  pre_process:
+    pre_process_batch_size: 50
+    max_string_size: 500000
+  files:
+    tf: data.tfs
+    tfidf: data.tfidf
+    vectorizer: vectorizer.tfidf
+    vectorizer_tfidf: tfidf
+  boosting:
+    boosting_model: (subtype)_boosting_classifier.model
+    boosting_n_estimators: 100
+    boosting_verbose: 10

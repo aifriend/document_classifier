@@ -1,0 +1,24 @@
+development:
+  service:
+    url:
+      fit: api/gbc/ml/document/classifier/datapreparation/fit
+      transform: api/gbc/ml/document/classifier/datapreparation/transform
+      training: api/gbc/ml/document/classifier/training
+      predict: api/gbc/ml/document/classifier/predict
+    address:
+      host: 127.0.0.1
+      port: 7125
+  directories:
+    dictionary: common/nlp/resources/dic_es.txt
+    lang: es
+  pre_process:
+    pre_process_batch_size: 50
+    max_string_size: 500000
+  files:
+    tf: data.tfs
+    tfidf: data.tfidf
+    vectorizer: vectorizer.tfidf
+    vectorizer_tfidf: tfidf
+  naive_bayes:
+    nb_model: naive_bayes_(subtype).model
+    nb_verbose: 10

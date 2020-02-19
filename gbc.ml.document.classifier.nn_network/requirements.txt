@@ -1,0 +1,27 @@
+# python -m spacy download es_core_news_md/en_core_web_md
+# pip install setuptools --upgrade --ignore-installed
+# python -m pip install pywin32
+
+healthcheck==1.3.3
+scikit-learn==0.22.1
+elasticsearch==7.5.1
+certifi==2019.11.28
+numpy==1.18.1
+binaryornot==0.4.4
+opentracing==2.3.0
+boto3==1.11.10
+tensorflow==2.1.0
+Flask==1.1.1
+Flask-Cors==3.0.8
+Flask-JWT-Extended==3.24.1
+flask-restplus==0.13.0
+flasgger==0.9.4
+Pillow==7.0.0
+setuptools==45.1.0
+opentracing-utils==0.18.1
+jaeger-client==4.3.0
+Werkzeug==0.16.1
+PyYAML==5.3
+imutils==0.5.3
+opencv-python==4.2.0.32
+scipy==1.4.1

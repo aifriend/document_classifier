@@ -1,0 +1,65 @@
+development:
+  augmentation: 19
+  image_processing:
+    resize_width: 450
+    resize_height: 600
+    crop_width: 200
+    crop_height: 200
+  server:
+    host: 127.0.0.1
+    port: 7116
+  directories:
+    sample: PH14.txt
+    cat_file: categories
+    dictionary: common/nlp/resources/dic_es.txt
+    base_dir: D:\Testing\class_services\data
+    classes: classes.txt
+  pre_process:
+    pre_process_batch_size: 50
+    max_string_size: 500000
+  files:
+    tf: data.tfs
+    tfidf: data.tfidf
+    vectorizer: vectorizer.tfidf
+    vectorizer_tfidf: tfidf
+  bagging:
+    bagging_model: bagging_classifier.model
+    bagging_n_estimators: 30  # memory error
+    bagging_max_samples: 0.1
+    bagging_verbose: 10
+    bagging_n_jobs: 3
+  boosting:
+    boosting_model: (subtype)_boosting_classifier.model
+    boosting_n_estimators: 100
+    boosting_verbose: 10
+  decision tree:
+    dt_model: decision_tree.model
+    dt_max_depth: 64
+  extra trees:
+    et_model: extra_trees_classifier.model
+    et_n_estimators: 500
+    et_max_features: 1000
+    et_bootstrap: True
+    et_n_jobs: 3
+  naive bayes:
+    nb_model: naive_bayes_(subtype).model
+  random forest:
+    rf_model: random_forest.model
+    rf_n_estimators: 1000
+    rf_max_leaf_nodes: 32
+    rf_n_jobs: 3
+  nnetwork:
+    nn_model_path: cnn_network.model
+    nn_model_name: saved_model.pb
+    nn_solver: 'lbfgs'
+    nn_alpha: 1e-5
+    nn_hidden_layer_sizes: (5, 2)
+    nn_random_state: 1
+    nn_image_size: 150
+    nn_class_size: 5
+    nn_batch_size: 64
+    nn_epochs: 5
+  voting:
+    voting_model: voting_classifier.model
+    voting: soft
+    voting_n_jobs: 3

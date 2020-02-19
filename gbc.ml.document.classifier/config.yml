@@ -1,0 +1,51 @@
+development:
+  augmentation: 19
+  image_processing:
+    resize_width: 450
+    resize_height: 600
+    crop_width: 200
+    crop_height: 200
+  service:
+    url:
+      fit: api/gbc/ml/document/classifier/datapreparation/vectorizer
+      transform: api/gbc/ml/document/classifier/datapreparation/transform
+      preprocess: api/gbc/ml/document/classifier/datapreparation/preprocess
+      training: api/gbc/ml/document/classifier/training
+      predict: api/gbc/ml/document/classifier/predict
+    pre_process:
+      host: 127.0.0.1
+      port: 7120
+    bagging:
+      host: 127.0.0.1
+      port: 7121
+    boosting:
+      host: 127.0.0.1
+      port: 7122
+    decision_tree:
+      host: 127.0.0.1
+      port: 7123
+    extra_trees:
+      host: 127.0.0.1
+      port: 7124
+    naive_bayes:
+      host: 127.0.0.1
+      port: 7125
+    random_forest:
+      host: 127.0.0.1
+      port: 7126
+    nn_network:
+      host: 127.0.0.1
+      port: 7127
+    voting:
+      host: 127.0.0.1
+      port: 7128
+  client:
+    host: 127.0.0.1
+    port: 7106
+    service:
+      pre_process: api/gbc/ml/document/classifier/pre-process
+      training: api/gbc/ml/document/classifier/training
+      predict: api/gbc/ml/document/classifier/predict
+  threads:
+    pdf2readable: 6
+

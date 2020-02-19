@@ -1,0 +1,39 @@
+service: gbc-ml-document-classifier
+
+plugins:
+  - serverless-wsgi
+  - serverless-python-requirements
+custom:
+  wsgi:
+    app: api.app
+    packRequirements: False
+  pythonRequirements:
+    dockerizePip: true
+    zip: true
+
+package:
+  exclude:
+    - node_modules/**
+    - .idea/**
+    - .requirements/**
+    - env/**
+    - README.md
+    - package.json
+    - package-lock.json
+    - requirements.txt
+
+provider:
+  name: aws
+  runtime: python3.6
+  region: eu-west-1
+  environment:
+    ENV_ACCESS_KEY_ID: AKIAIQLDV23UPSQZC7QQ
+    ENV_SECRET_ACCESS_KEY: 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
+    ENV_AWS_BUCKET: gbc.product.irph
+
+functions:
+  app:
+    handler: wsgi_handler.handler
+    events:
+      - http: ANY /
+      - http: 'ANY {proxy+}'

@@ -1,0 +1,39 @@
+development:
+  augmentation: 19
+  image_processing:
+    resize_width: 450
+    resize_height: 600
+    crop_width: 200
+    crop_height: 200
+  service:
+    url:
+      fit: api/gbc/ml/document/classifier/datapreparation/fit
+      transform: api/gbc/ml/document/classifier/datapreparation/transform
+      training: api/gbc/ml/document/classifier/training
+      predict: api/gbc/ml/document/classifier/predict
+    address:
+      host: 127.0.0.1
+      port: 7127
+  directories:
+    dictionary: common/nlp/resources/dic_es.txt
+    lang: es
+  pre_process:
+    pre_process_batch_size: 50
+    max_string_size: 500000
+  files:
+    tf: data.tfs
+    tfidf: data.tfidf
+    vectorizer: vectorizer.tfidf
+    vectorizer_tfidf: tfidf
+  nnetwork:
+    nn_model_path: cnn_network.model
+    nn_model_name: saved_model.pb
+    nn_solver: 'lbfgs'
+    nn_alpha: 1e-5
+    nn_hidden_layer_sizes: (5, 2)
+    nn_random_state: 1
+    nn_image_size: 150
+    nn_class_size: 5
+    nn_batch_size: 64
+    nn_epochs: 1
+    nn_verbose: 2
